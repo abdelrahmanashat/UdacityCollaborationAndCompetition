@@ -20,8 +20,8 @@ The observation space consists of 8 variables corresponding to the position and 
 
 The task is episodic, and in order to solve the environment, your agents must get an average score of `+0.5` (over `100` consecutive episodes, after taking the maximum over both agents). Specifically,
 
-* After each episode, we add up the rewards that each agent received (without discounting), to get a score for each agent. This yields 2 (potentially different) scores. We then take the `maximum` of these 2 scores.
-* This yields a single score for each episode.
+* After each episode, we add up the rewards that each agent received (without discounting), to get a score for each agent. This yields 2 (potentially different) scores. We then take the __maximum__ of these 2 scores.
+* This yields a single __score__ for each episode.
 
 The environment is considered solved, when the average (over 100 episodes) of those scores is at least `+0.5`.
 
@@ -50,9 +50,7 @@ _(For Windows users)_ Check out this link if you need help with determining if y
 _(For AWS)_ If you'd like to train the agent on AWS (and have not enabled a virtual screen), then please use this link to obtain the "headless" version of the environment. You will not be able to watch the agent without enabling a virtual screen, but you will be able to train the agent. (To watch the agent, you should follow the instructions to enable a virtual screen, and then download the environment for the Linux operating system above.)
 
 ## 3. Explore the Environment
-After you have followed the instructions above, open `Continuous_Control_1.ipynb` located in the `project_continuous_control/one_agent_control/` folder and follow the instructions to learn how to use the Python API to control the agent. The saved weights files are 2 files named `checkpoint_actor.pth` and `checkpoint_critic.pth` located in the `project_continuous_control/one_agent_control/weights/` folder. 
-
-For generalization on many agents, open `Continuous_Control_20.ipynb` located in the `project_continuous_control/twenty_agents_control/` folder and follow the instructions to learn how to use the Python API to control the agent. The saved weights files are 40 files, 2 files for each agent named `checkpoint_actor_{}.pth` and `checkpoint_critic_{}.pth` where `{}` is the number of the agent. For example: checkpoint_actor_15.pth and checkpoint_critic_15.pth are the weights of the 16<sup>th</sup> agent (because the numbering begins from 0). These files are located in the `project_continuous_control/twenty_agent_control/weights/` folder.
+After you have followed the instructions above, open `Collaboration_and_Competition.ipynb` located in the `project_collaboration_and_competition/` folder and follow the instructions to learn how to use the Python API to control the agent. The saved weights files are 4 files named `checkpoint_actor_1.pth`, `checkpoint_critic_1.pth`, `checkpoint_actor_2.pth`, `checkpoint_critic_2.pth` located in the `project_collaboration_and_competition/weights/` folder. 
 
 ## 4. Implementation Details
 
