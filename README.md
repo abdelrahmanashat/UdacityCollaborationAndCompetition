@@ -50,7 +50,7 @@ _(For Windows users)_ Check out this link if you need help with determining if y
 _(For AWS)_ If you'd like to train the agent on AWS (and have not enabled a virtual screen), then please use this link to obtain the "headless" version of the environment. You will not be able to watch the agent without enabling a virtual screen, but you will be able to train the agent. (To watch the agent, you should follow the instructions to enable a virtual screen, and then download the environment for the Linux operating system above.)
 
 ## 3. Explore the Environment
-After you have followed the instructions above, open `Collaboration_and_Competition.ipynb` located in the `project_collaboration_and_competition/` folder and follow the instructions to learn how to use the Python API to control the agent. The saved weights files are 4 files named `checkpoint_actor_1.pth`, `checkpoint_critic_1.pth`, `checkpoint_actor_2.pth`, `checkpoint_critic_2.pth` located in the `project_collaboration_and_competition/weights/` folder. 
+After you have followed the instructions above, open `Collaboration_and_Competition.ipynb` located in the `project_collaboration_and_competition/` folder and follow the instructions to learn how to use the Python API to control the agent. The saved weights files are 4 files named `checkpoint_actor_0.pth`, `checkpoint_critic_0.pth`, `checkpoint_actor_1.pth`, and `checkpoint_critic_1.pth` located in the `project_collaboration_and_competition/weights/` folder. 
 
 ## 4. Implementation Details
 
@@ -100,13 +100,13 @@ The critic is a value-based neural network. It calculates the action-value using
 The input layer of the network receives the state _S<sub>t</sub>_. The first hidden layer receives the output of the first layer and the action _A<sub>t</sub>_. You can add other hidden layers but the first 2 have to be like this. The output of the network is a single neuron representing the action-value _Q<sub>t</sub>(S<sub>t</sub>,A<sub>t</sub>;θ<sup>Q</sup>)_ where _θ<sup>Q</sup>_ are the parameters of the critic neural network.
 
 The neural network architecture of the critic is as follows (shown in Fig.1):
-- The input layer has the same number of states of the enivronment: `33`
-- The first hidden layer has `400` neurons. The output of this layer is concatenated with the action input of `4`.
-- The second hidden layer has `300` neurons.
+- The input layer has the same number of states of the enivronment: `24`
+- The first hidden layer has `200` neurons. The output of this layer is concatenated with the action input of `2`.
+- The second hidden layer has `100` neurons.
 - The output layer has `1` neuron.
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/47497135/135295905-b5a71118-ff98-471a-a531-4a459e8369b7.png" alt="drawing" width="400"/>
+  <img src="https://user-images.githubusercontent.com/47497135/135766099-760e0d08-820e-4b3d-9121-ed2f3eea1f8c.png" alt="drawing" width="400"/>
 </p>
 <p align="center">
   <em>Fig.1: Critic Neural Network Architecture</em>
@@ -118,13 +118,13 @@ The actor is a policy-based neural network. It simply maps the state into action
 The input layer receives the state _S<sub>t</sub>_ and the output layer produces the probability distribution of each action _a∈A_ where _A_ is the action space.
 
 The neural network architecture of the critic is as follows (shown in Fig.2):
-- The input layer has the same number of states of the enivronment: `33` neurons.
-- The first hidden layer has `400` neurons.
-- The second hidden layer has `300` neurons.
-- The output layer has the same number of actions of the enivronment: `4` neurons.
+- The input layer has the same number of states of the enivronment: `24` neurons.
+- The first hidden layer has `200` neurons.
+- The second hidden layer has `100` neurons.
+- The output layer has the same number of actions of the enivronment: `2` neurons.
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/47497135/135296404-f5bd3034-1b36-423d-9dbd-efe14420c5ec.png" alt="drawing" width="300"/>
+  <img src="https://user-images.githubusercontent.com/47497135/135766160-359deded-5ada-4b63-bc33-4fd35d362d7a.png" alt="drawing" width="300"/>
 </p>
 <p align="center">
   <em>Fig.2: Actor Neural Network Architecture</em>
@@ -201,7 +201,7 @@ The hyperparameters are:
 Instead of calculating the gradients and updating the parameters ever time step _t_, we calculate the gradients and update the parameters every _n_ time steps. This prevents the problem of exploding gradients and stablizes the learning process.
 
 The hyperparameters are:
-* n = `20`
+* n = `1`
 
 ## 5. Plot of Rewards
 For the environment to be solved, the average reward over the 20 agents over 100 episodes must reach at least 30. The implementation provided here needed just `155 episodes` to be completed! The average score reached `50` after `207 episodes`. The plot of rewards is shown in _fig.3_.
