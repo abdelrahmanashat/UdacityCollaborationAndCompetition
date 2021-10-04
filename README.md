@@ -50,7 +50,9 @@ _(For Windows users)_ Check out this link if you need help with determining if y
 _(For AWS)_ If you'd like to train the agent on AWS (and have not enabled a virtual screen), then please use this link to obtain the "headless" version of the environment. You will not be able to watch the agent without enabling a virtual screen, but you will be able to train the agent. (To watch the agent, you should follow the instructions to enable a virtual screen, and then download the environment for the Linux operating system above.)
 
 ## 3. Explore the Environment
-After you have followed the instructions above, open `Collaboration_and_Competition.ipynb` located in the `project_collaboration_and_competition/` folder and follow the instructions to learn how to use the Python API to control the agent. The saved weights files are 4 files named `checkpoint_actor_0.pth`, `checkpoint_critic_0.pth`, `checkpoint_actor_1.pth`, and `checkpoint_critic_1.pth` located in the `project_collaboration_and_competition/weights/` folder. 
+After you have followed the instructions above, open `Collaboration_and_Competition.ipynb` located in the `project_collaboration_and_competition/` folder and follow the instructions to learn how to use the Python API to control the agent. 
+
+The saved weights files are 4 files named `checkpoint_actor_0.pth`, `checkpoint_critic_0.pth`, `checkpoint_actor_1.pth`, and `checkpoint_critic_1.pth` located in the `project_collaboration_and_competition/weights/` folder. 
 
 ## 4. Implementation Details
 
@@ -204,14 +206,22 @@ The hyperparameters are:
 * n = `1`
 
 ## 5. Plot of Rewards
-For the environment to be solved, the average reward over the 20 agents over 100 episodes must reach at least 30. The implementation provided here needed just `155 episodes` to be completed! The average score reached `50` after `207 episodes`. The plot of rewards is shown in _fig.3_.
+For the environment to be solved, the average reward over 100 episodes must reach at least 0.5. The implementation provided here needed just around `3250 episodes` to be completed! The average score reached `0.73` after `3900 episodes`. The plot of rewards per episode is shown in _fig.3_. The plot of the rewards running average over 100 episodes is shown in _fig.4_.
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/47497135/135637162-c3cebfcf-e62b-4571-8e35-ca31b26cfe96.png" alt="drawing" width="400"/>
+  <img src="https://user-images.githubusercontent.com/47497135/135778790-3713bb52-66c8-4d23-b97e-06181db62554.png" alt="drawing" width="400"/>
 </p>
 <p align="center">
-  <em>Fig.3: Rewards Plot in 500 episodes for 20 agents</em>
+  <em>Fig.3: Rewards Plot in 5000 episodes</em>
 </p>
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/47497135/135779012-77dd64e1-96e5-4cb7-9790-bee7b11fd469.png" alt="drawing" width="400"/>
+</p>
+<p align="center">
+  <em>Fig.4: Rewards Running Average Plot over 100 episodes for 5000 episodes</em>
+</p>
+
 
 ## 6. Ideas for Future Work
 Some additional features could be used to provide better performance:
